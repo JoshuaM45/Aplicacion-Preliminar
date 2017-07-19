@@ -1,0 +1,114 @@
+#include <iostream>
+#include <cmath>
+using namespace std;
+void Sumar(int bx, int c, bool bxs, bool cs);
+void Restar(int bx, int c, bool bxs, bool cs);
+int main(){
+	int p,bx,c;
+	float ecr1,ecr2;
+	bool bxs = false ,cs = false;
+
+
+	cout<<"Escribe el termino bx: ";
+	cin>>bx;
+	cout<<"Escribe el termino c: ";
+	cin>>c;
+	
+	cout<<"Quieres usar la ecuacion cuadratica? Presiona 1: ";
+	cin>>p;
+	
+	if(p==1){
+		ecr1 = (-bx+sqrt(pow(bx,2) - 4 * 1 * c))/2;
+		ecr2 = (-bx-sqrt(pow(bx,2) - 4 * 1 * c))/2;
+		cout<<"El resultado es xsub1="<<ecr1<<" xsub2="<<ecr2;
+		
+	}
+	else{
+	
+	
+	
+	if(bx > 0 ){
+		bxs = true;
+		bx = abs(bx);
+	}else{
+			bx = abs(bx);
+	}
+	if(c > 0){
+		cs = true;
+		c = abs(c);
+	}
+	else{
+		c = abs(c);
+	}
+	if(bxs == true && cs == true ){
+		Sumar(bx,c,bxs,cs);
+	}
+	else if(bxs == false && cs == false){
+		Restar(bx,c,bxs,cs);
+	}
+	else if(bxs == true && cs == false) {
+		Restar(bx,c,bxs,cs);
+	}
+	else if(bxs == false && cs == true){
+		Sumar(bx,c,bxs,cs);
+	}
+	
+	
+	
+	return 0;
+}
+}
+void Sumar(int bx, int c, bool bxs, bool cs){
+	int i,j;
+	bool s = false;
+	for(i=1;i<c && s == false ;i++){
+			for(j=1;j<c && s == false ;j++)
+				{
+					
+				if(i*j==c && i+j==bx){
+					s = true;
+					if(bxs == true && cs == true){
+					cout <<"(x"<<"+"<<j<<")"<<" "<<"(x"<<"+"<<i<<")";	
+					}
+					else if(bxs == false && cs == true){
+						cout <<"(x"<<"-"<<j<<")"<<" "<<"(x"<<"-"<<i<<")";
+					}
+				
+				}
+				/*
+				if( c-1 == i && c-1==j){
+					cout<<"No hay solucion pruebe con la Ecuacion Cuadratica";
+				} 
+				*/
+				
+					
+			}	
+		}
+	
+	}
+
+void Restar(int bx , int c, bool bxs, bool cs){
+	int i,j;
+	bool s = false;
+		for(i=1;i<=c && s == false;i++){
+			for(j=1;j<=c && s == false;j++)
+				{
+						
+				if(i*j==c && j-i==bx){
+					s = true;
+						if(bxs == true && cs == false){
+					cout <<"(x"<<"+"<<j<<")"<<" "<<"(x"<<"-"<<i<<")";
+					}
+					else if(bxs == false && cs == false){
+						cout <<"(x"<<"-"<<j<<")"<<" "<<"(x"<<"+"<<i<<")";
+					}
+				
+				}
+				/*if( c-1 == i && c-1==j){
+					cout<<"No hay solucion pruebe con la Ecuacion Cuadratica";
+				} 
+				*/	
+			}	
+		}
+	
+	}
